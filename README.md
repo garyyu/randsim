@@ -1,10 +1,10 @@
 # randsim
-Random number generation SFMT algorithm with multi-threads
+Random number generation SFMT algorithm with multi-threads.
 
 SIMD-oriented Fast Mersenne Twister (SFMT). twice faster than Mersenne Twister. Please refer to the official link of SFMT for the detail.
 The official SFMT is here: http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/SFMT/index.html
 
-Besides SFMT, this 'randsim' is a mathmatic game to continuously generate 64bits random number, and looking for 32bits zero leading random number, also looking for 32bits all one leading random number, it's an interesting result for the distribution of the time of finding these special numbers.
+This **randsim** is a mathmatic game to continuously generate 64bits random number, and looking for 32bits zero leading random number, also looking for 32bits all one leading random number, it's an interesting result for the distribution of the time of finding these special numbers.
 
 What is SFMT?
 
@@ -19,16 +19,16 @@ The implementation SFMT19937 can be compiled in three possible platforms:
 - CPUs with PowerPC's AltiVec instructions + C compiler which supports these feature
 
 Here (this github repository) is just using it and tested at MacOS, but should also be OK in all Linux platform.
-On my testing Mac computer, when I build with sse=1 and run it with 3 threads, the best performance is 1.9G/s generation speed. The random number generation performance detail is as follows:
+On my testing Mac computer, when I build with sse=1 and run it with 3 threads, the best performance is **1.9G/s** generation speed. The random number generation performance detail is as follows:
 
-- Algorithm           Speed
-- SFMT SSE2 BLOCK     1.922G/s
-- SFMT SSE2 SEQUENCE  1.202G/s
-- C++ std::mt19937    0.142G/s
+| Algorithm           |     Speed       |
+|---------------------------------------|
+| SFMT SSE2 BLOCK     |     1.922G/s    |
+| SFMT SSE2 SEQUENCE  |     1.202G/s    |
+| C++ std::mt19937    |     0.142G/s    |
 
-All the tests are run with 3 threads.
+All the above tests are run with 3 threads.
 
-----------------------------------------
 
 # How to build
 
@@ -59,7 +59,7 @@ If want to see the performance of C++ std::mt19937 performance, we can all 'algo
 $ ./randsim-sse 1000 2 2
 ```
 
-The result is a distribution of 'time' to find these random numbers, splited into 256 'time' grid.
+The result is a distribution of 'time' to find these random numbers, splited into 256 'time' grids.
 
 # License
 
