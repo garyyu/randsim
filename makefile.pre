@@ -1,0 +1,42 @@
+############################################################################
+## 
+##  makefile.pre
+## 
+############################################################################
+
+SHELL = /bin/bash
+
+ROOT_DIR = .
+
+WARN = -Wmissing-prototypes -Wall -Wno-unused-function 
+OPTI = -finline-functions -fomit-frame-pointer -DNDEBUG -fno-strict-aliasing
+STD = 
+
+SSE2FLAGS = -msse2 -DHAVE_SSE2
+CLINK  = -c -o
+CFLAGS	= $(OPTI) $(WARN) $(STD)
+
+	
+CROSS_COMPILE = 
+
+ifeq ($(DEBUG_VERSION), 1) 
+  CFLAGS += -g3 -O0
+else
+  CFLAGS += -O3
+endif
+
+  CFLAGS += 
+  LIBS	 =   -Wl, -lpthread -lm -Wl, $(SYSLIBS) 
+
+INCLUDE= -I./ 
+
+NM              = $(CROSS_COMPILE)nm  -S
+CC              = $(CROSS_COMPILE)gcc
+CPP             = $(CROSS_COMPILE)g++ -std=c++11
+GCC             = $(CROSS_COMPILE)gcc
+AR              = $(CROSS_COMPILE)ar cqs
+OBJCPY        	= $(CROSS_COMPILE)objcopy
+
+RM              = rm -f 
+MV              = mv -f 
+
