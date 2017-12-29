@@ -13,12 +13,17 @@ OBJS = \
  SFMT.o \
  main.o
 
-ifeq ($(sse), 1)
+ifeq (a$(sse), a)
 	SSE2 = $(SSE2FLAGS)
-else
-	SSE2 = 
 endif
 
+ifeq (a$(sse), a1)
+	SSE2 = $(SSE2FLAGS)
+endif
+
+ifeq (a$(sse), a0)
+	SSE2 = 
+endif
 
 all:	$(EXECUTABLE)
 
