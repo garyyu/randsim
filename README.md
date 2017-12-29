@@ -14,17 +14,17 @@ SFMT is much faster than MT, in most platforms. Not only the speed, but also the
 
 The implementation SFMT19937 can be compiled in three possible platforms:
 
-Standard C without SIMD instructions
-CPUs with Intel's SSE2 instructions + C compiler which supports these feature
-CPUs with PowerPC's AltiVec instructions + C compiler which supports these feature
+- Standard C without SIMD instructions
+- CPUs with Intel's SSE2 instructions + C compiler which supports these feature
+- CPUs with PowerPC's AltiVec instructions + C compiler which supports these feature
 
 Here (this github repository) is just using it and tested at MacOS, but should also be OK in all Linux platform.
 On my testing Mac computer, when I build with sse=1 and run it with 3 threads, the best performance is 1.9G/s generation speed. The random number generation performance detail is as follows:
 
-Algorithm           Speed
-SFMT SSE2 BLOCK     1.922G/s
-SFMT SSE2 SEQUENCE  1.202G/s
-C++ std::mt19937    0.142G/s
+- Algorithm           Speed
+- SFMT SSE2 BLOCK     1.922G/s
+- SFMT SSE2 SEQUENCE  1.202G/s
+- C++ std::mt19937    0.142G/s
 
 All the tests are run with 3 threads.
 
@@ -32,19 +32,32 @@ All the tests are run with 3 threads.
 
 # How to build
 
+```
 $ make
+```
 This will make the SFMT sse2 version. If your computer CPU doesn't have good SSE2 support, then you have to use the standard version without sse2, build like this:
+```
 $ make sse=0
+```
+
 
 # How to run
 
+```
 $ ./randsim-sse
+```
+
 
 For example, if want to generate 64bits random number to look for 1000 random numbers which have 32bits zero leading, and want to use 2 threads, we can run it like this:
+```
 $ ./randsim-sse 1000 2
+```
+
 
 If want to see the performance of C++ std::mt19937 performance, we can all 'algo' parameter:
+```
 $ ./randsim-sse 1000 2 2
+```
 
 The result is a distribution of 'time' to find these random numbers, splited into 256 'time' grid.
 
