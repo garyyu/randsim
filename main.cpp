@@ -415,7 +415,6 @@ int main(int argc, char* argv[])
         randworker_term();
     }
 
-    std::ostringstream strResult;
     syslog(LM_RAND, LOG_VERBOSE, "\nInterval  0-Occur\n");
     for (const uint32_t& s : intervalsets0){
         syslog(LM_RAND, LOG_VERBOSE, "%4d   %4d\n", s, intervaloccurence0[s]);
