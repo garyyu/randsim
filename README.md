@@ -21,8 +21,8 @@ The implementation SFMT19937 can be compiled in three possible platforms:
 Here (this github repository) is just using it and tested at MacOS, but should also be OK in all Linux platform.
 On my testing Mac computer, when I build with sse=1 and run it with 3 threads, the best performance is **1.9G/s** generation speed. The random number generation performance detail is as follows:
 
-| Algorithm           |     Speed       |
-|---------------------------------------|
+| Algorithm | Speed |
+|---|---|
 | SFMT SSE2 BLOCK     |     1.922G/s    |
 | SFMT SSE2 SEQUENCE  |     1.202G/s    |
 | C++ std::mt19937    |     0.142G/s    |
