@@ -4,6 +4,8 @@ Random number generation SFMT algorithm with multi-threads
 SIMD-oriented Fast Mersenne Twister (SFMT). twice faster than Mersenne Twister. Please refer to the official link of SFMT for the detail.
 The official SFMT is here: http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/SFMT/index.html
 
+Besides SFMT, this 'randsim' is a mathmatic game to continuously generate 64bits random number, and looking for 32bits zero leading random number, also looking for 32bits all one leading random number, it's an interesting result for the distribution of the time of finding these special numbers.
+
 What is SFMT?
 
 SFMT is a new variant of Mersenne Twister (MT) introduced by Mutsuo Saito and Makoto Matsumoto in 2006. The algorithm was reported at MCQMC 2006. The article published in the proceedings of MCQMC2006. (see Prof. Matsumoto's Papers on random number generation.) SFMT is a Linear Feedbacked Shift Register (LFSR) generator that generates a 128-bit pseudorandom integer at one step. SFMT is designed with recent parallelism of modern CPUs, such as multi-stage pipelining and SIMD (e.g. 128-bit integer) instructions. It supports 32-bit and 64-bit integers, as well as double precision floating point as output.
@@ -28,14 +30,14 @@ All the tests are run with 3 threads.
 
 ----------------------------------------
 
-How to build:
+# How to build
 
 $ make
 
-How to run:
+# How to run
 
 $ ./randsim-sse
 
-License:
+# License
 
 SFMT, as well as MT, can be used freely for any purpose, including commercial use.
