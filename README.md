@@ -33,10 +33,20 @@ All the tests are run with 3 threads.
 # How to build
 
 $ make
+This will make the SFMT sse2 version. If your computer CPU doesn't have good SSE2 support, then you have to use the standard version without sse2, build like this:
+$ make sse=0
 
 # How to run
 
 $ ./randsim-sse
+
+For example, if want to generate 64bits random number to look for 1000 random numbers which have 32bits zero leading, and want to use 2 threads, we can run it like this:
+$ ./randsim-sse 1000 2
+
+If want to see the performance of C++ std::mt19937 performance, we can all 'algo' parameter:
+$ ./randsim-sse 1000 2 2
+
+The result is a distribution of 'time' to find these random numbers, splited into 256 'time' grid.
 
 # License
 

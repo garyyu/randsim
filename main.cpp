@@ -1,3 +1,6 @@
+// Copyright (c) 2017 Gary Yu
+// Distributed under the MIT software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 
 #include <sys/time.h>
@@ -24,7 +27,6 @@ typedef enum
     INS_rand_wait           = 0,
     INS_rand_start             ,
     INS_rand_stop              ,
-    INS_rand_pause             ,
 
     INS_RAND_MAX
 } instruction_opcode_t;
@@ -37,6 +39,7 @@ typedef enum
 
     ALGO_MAX
 } rand_algo_type;
+
 const char *rand_algo_str[ALGO_MAX] = {
         "SFMT Sequence Algorithm by SSE2"           ,
         "SFMT Block Algorithm by SSE2"              ,
